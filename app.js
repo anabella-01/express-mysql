@@ -235,6 +235,7 @@ app.delete('/api/personas/:id', async (req,res)=>{
         query = 'DELETE FROM persona WHERE id = ?';
         respuesta = await qy(query, [req.params.id]);
         console.log(`La persona se elimino correctamente`);
+        res.send({"respuesta": respuesta.affectedRows});
 
     }catch(e){
         console.error(e.message);
